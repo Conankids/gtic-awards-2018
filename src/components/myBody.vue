@@ -35,8 +35,10 @@
             </div>
             <div class="part-body">
                 <div class="introduction-detail">
-                    <p>GTIC AWARDS 2018，由智东西和极果权威发起。此次年度评选聚焦智能变革力量，着眼产业升级趋势，将对在2017年度有着卓越表现、快速成长、大胆创新、取得商业突破的优秀公司、产品和解决方案进行表彰。</p>
-                    <p><br>走过2016年的技术普及元年，人工智能在2017年与实体经济快速融合，开始对各个行业进行赋能和变革。不过，这不只是人工智能的冲锋号角，也是国内传统产业升级的大契机。那么，在这一轮智能化浪潮中，谁将是这一年度最具变革性的力量？谁又是过去一年跑的最快的AI先锋？谁的产品在突破常规，引领创新？谁的解决方案又在很好地为客户创造价值呢？</p>
+                    <p>
+                        GTIC AWARDS 2018，由智东西和极果权威发起。此次年度评选聚焦智能变革力量，着眼产业升级趋势，将对在2017年度有着卓越表现、快速成长、大胆创新、取得商业突破的优秀公司、产品和解决方案进行表彰。</p>
+                    <p><br>走过2016年的技术普及元年，人工智能在2017年与实体经济快速融合，开始对各个行业进行赋能和变革。不过，这不只是人工智能的冲锋号角，也是国内传统产业升级的大契机。那么，在这一轮智能化浪潮中，谁将是这一年度最具变革性的力量？谁又是过去一年跑的最快的AI先锋？谁的产品在突破常规，引领创新？谁的解决方案又在很好地为客户创造价值呢？
+                    </p>
                     <p><br>2018年3月9日，GTIC 2018将在上海召开。届时，我们将在峰会颁奖仪式上正式公布GTIC AWARDS 2018的获奖名单，并向获奖企业颁奖。<br></p>
                 </div>
                 <div class="left-line"></div>
@@ -105,7 +107,7 @@
                             <p>-获奖企业需要出席GTIC AWARDS 2018颁奖仪式。</p>
                         </div>
                         <a class="icon-add" href="javascript:;"><img src="../assets/images/icon-add.png" alt=""></a>
-                        <a class="apply-btn" href="javascript:;" target="_blank">报名</a>
+                        <a class="apply-btn closed" href="javascript:;" target="_blank">敬请期待</a>
                     </li>
                     <li>
                         <div class="shadow">
@@ -234,7 +236,7 @@
             return {
                 scrollBarFixed: false,
                 judgesNum: 15,
-                judgelist:[
+                judgelist: [
                     {
                         img: 'src/assets/images/judges/judge1.jpg',
                         name: '陈昱',
@@ -521,7 +523,7 @@
                 overflow: hidden;
                 float: left;
                 &:hover {
-                    .shadow {
+                    .shadow, .closed {
                         display: none;
                     }
                 }
@@ -586,6 +588,10 @@
             position: absolute;
             top: 278px;
             left: 210px;
+            &.closed {
+                background-color: transparent;
+                color: #000;
+            }
         }
     }
 
