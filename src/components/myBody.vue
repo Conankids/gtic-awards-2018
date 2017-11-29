@@ -238,91 +238,91 @@
                 judgesNum: 15,
                 judgelist: [
                     {
-                        img: 'src/assets/images/judges/judge1.jpg',
+                        img: require('../assets/images/judges/judge1.jpg'),
                         name: '陈昱',
                         txt1: '云启资本',
                         txt2: '执行董事'
                     },
                     {
-                        img: 'src/assets/images/judges/judge2.jpg',
+                        img: require('../assets/images/judges/judge2.jpg'),
                         name: '龚伦常',
                         txt1: '智东西',
                         txt2: 'CEO'
                     },
                     {
-                        img: 'src/assets/images/judges/judge3.jpg',
+                        img: require('../assets/images/judges/judge3.jpg'),
                         name: '顾旻曼',
                         txt1: '真格基金',
                         txt2: '董事总经理'
                     },
                     {
-                        img: 'src/assets/images/judges/judge4.jpg',
+                        img: require('../assets/images/judges/judge4.jpg'),
                         name: '何建文',
                         txt1: '辰韬资本',
                         txt2: '管理合伙人'
                     },
                     {
-                        img: 'src/assets/images/judges/judge5.jpg',
+                        img: require('../assets/images/judges/judge5.jpg'),
                         name: '贾静',
                         txt1: '德联资本',
                         txt2: '合伙人'
                     },
                     {
-                        img: 'src/assets/images/judges/judge6.jpg',
+                        img: require('../assets/images/judges/judge6.jpg'),
                         name: '刘鹏',
                         txt1: '极果',
                         txt2: '创始人&CEO'
                     },
                     {
-                        img: 'src/assets/images/judges/judge7.jpg',
+                        img: require('../assets/images/judges/judge7.jpg'),
                         name: '满坤',
                         txt1: '安创空间合伙人、安创资本管理合伙人',
                         txt2: ''
                     },
                     {
-                        img: 'src/assets/images/judges/judge8.jpg',
+                        img: require('../assets/images/judges/judge8.jpg'),
                         name: '毛圣博',
                         txt1: '熊猫资本',
                         txt2: '合伙人'
                     },
                     {
-                        img: 'src/assets/images/judges/judge9.jpg',
+                        img: require('../assets/images/judges/judge9.jpg'),
                         name: '孟醒',
                         txt1: '顺为资本',
                         txt2: '副总裁'
                     },
                     {
-                        img: 'src/assets/images/judges/judge10.jpg',
+                        img: require('../assets/images/judges/judge10.jpg'),
                         name: '石东华',
                         txt1: '索道投资',
                         txt2: '创始合伙人'
                     },
                     {
-                        img: 'src/assets/images/judges/judge11.jpg',
+                        img: require('../assets/images/judges/judge11.jpg'),
                         name: '王华东',
                         txt1: '经纬创投',
                         txt2: '合伙人'
                     },
                     {
-                        img: 'src/assets/images/judges/judge12.jpg',
+                        img: require('../assets/images/judges/judge12.jpg'),
                         name: '王晟',
                         txt1: '英诺天使基金',
                         txt2: '合伙人'
                     },
                     {
-                        img: 'src/assets/images/judges/judge13.jpg',
+                        img: require('../assets/images/judges/judge13.jpg'),
                         name: '吴智勇',
                         txt1: '丰厚资本',
                         txt2: '创始合伙人'
                     },
                     {
-                        img: 'src/assets/images/judges/judge14.jpg',
+                        img: require('../assets/images/judges/judge14.jpg'),
                         name: '熊伟铭',
                         txt1: '华创资本',
                         txt2: '合伙人'
                     },
                     {
-                        img: 'src/assets/images/judges/judge15.jpg',
+                        img: require('../assets/images/judges/judge15.jpg'),
                         name: '祝晓成',
                         txt1: '臻云创投',
                         txt2: '创始合伙人'
