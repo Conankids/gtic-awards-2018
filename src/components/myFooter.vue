@@ -2,12 +2,12 @@
     <footer>
         <div class="contact-wrapper main">
             <div class="footer-item">
-                <h3>报名垂询邮箱</h3>
-                <p>PAPAPA@ZHIDX.COM</p>
+                <h3>评选垂询邮箱</h3>
+                <p><a href="mailto:zhenyunce@zhidx.com">zhenyunce@zhidx.com</a></p>
             </div>
             <div class="footer-item">
                 <h3>媒体合作邮箱</h3>
-                <p>PAPAPA@ZHIDX.COM</p>
+                <p><a href="mailto:marketing@zhidx.com">marketing@zhidx.com</a></p>
             </div>
         </div>
     </footer>
@@ -26,17 +26,22 @@
         border-bottom: 20px solid #F8E71C;
         padding: 45px 0 45px;
     }
-    .contact-wrapper{
+
+    .contact-wrapper {
         display: flex;
         justify-content: center;
     }
+
     .footer-item {
         color: #fff;
-        h3, p {
+        h3, p{
             font-size: 30px;
             line-height: 42px;
             padding-left: 27px;
             font-weight: normal;
+            a{
+                color: #fff;
+            }
         }
         &:before {
             content: '';

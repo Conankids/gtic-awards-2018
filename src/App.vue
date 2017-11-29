@@ -3,7 +3,7 @@
         <MyHeader/>
         <MyBody/>
         <MyFooter/>
-        <GoGtic/>
+        <!--<GoGtic/>-->
         <BackTop/>
     </div>
 </template>

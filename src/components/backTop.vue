@@ -1,7 +1,9 @@
 <template>
-    <a class="backTop" :class="scrollTopFlag ? 'none' : ''" href="javascript:;" @click.prevent="scrollToTop">
-        <img src="../assets/images/top.png" alt="">
-    </a>
+    <transition name="bt">
+        <a class="backTop" v-if="!scrollTopFlag" href="javascript:;" @click.prevent="scrollToTop">
+            <img src="../assets/images/top.png" alt="">
+        </a>
+    </transition>
 </template>
 
 <script>
@@ -15,9 +17,6 @@
         },
         created(){
             this.scrollEvent()
-        },
-        mounted() {
-
         },
         methods: {
             scrollToTop() {
@@ -53,5 +52,11 @@
         img {
             width: 25px;
         }
+    }
+    .bt-enter-active,.bt-leave-active{
+        transition: opacity .5s;
+    }
+    .bt-enter,.bt-leave-to{
+        opacity: 0;
     }
 </style>

@@ -12,7 +12,7 @@
                 </div>
                 <i v-if="item.divide" class="divide"></i>
             </div>
-            <div class="gtic-swards-logo" :class="minNavWidthFlag ? '' : 'none'">GTIC<br>AWARDS 2018</div>
+            <div class="gtic-swards-logo" v-if="minNavWidthFlag">GTIC<br>AWARDS 2018</div>
         </nav>
     </div>
 </template>
@@ -31,14 +31,14 @@
                         divide: true
                     },
                     {
-                        cnText: '大会介绍',
-                        enText: 'Introduce',
+                        cnText: '活动介绍',
+                        enText: 'Introduction',
                         target: 'introduction-box',
                         divide: true
                     },
                     {
                         cnText: '评选流程',
-                        enText: 'Time Line',
+                        enText: 'Schedule',
                         target: 'time-line-box',
                         divide: true
                     },
@@ -50,13 +50,13 @@
                     },
                     {
                         cnText: '评委嘉宾',
-                        enText: 'judge',
+                        enText: 'Judges',
                         target: 'judge-box',
                         divide: true
                     },
                     {
                         cnText: '主办',
-                        enText: 'Host',
+                        enText: 'About',
                         target: 'host-box',
                         divide: false
                     }
@@ -71,7 +71,6 @@
         },
         mounted() {
             window.addEventListener('scroll', this.handleScroll)
-            window.addEventListener('resize', this.handleResize)
         },
         methods: {
             handleScroll() {
@@ -121,7 +120,7 @@
             },
             handleResize() {
                 const winWidth = $(window).width()
-                if (winWidth < 1280) {
+                if (winWidth < 1335) {
                     this.minNavWidthFlag = false
                 } else {
                     this.minNavWidthFlag = true
