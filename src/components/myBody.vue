@@ -31,7 +31,7 @@
                     <img src="../assets/images/introduction.png" alt="">
                 </div>
                 <h3>GTIC AWARDS 2018</h3>
-                <p>/ 评选介绍 /</p>
+                <p>/ 活动介绍 /</p>
             </div>
             <div class="part-body">
                 <div class="introduction-detail">
