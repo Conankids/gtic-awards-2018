@@ -591,6 +591,7 @@
             &.closed {
                 background-color: transparent;
                 color: #000;
+                font-weight: bold;
             }
         }
     }
