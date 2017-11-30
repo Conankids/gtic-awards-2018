@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script>
+        if (navigator.userAgent.match(/(iPhone|iPod|Android|ios|webOS|BlackBerry)/i)) {
+            window.location = 'mb/';
+        }
+    </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>gtic</title>
+    <title>gtic awards 2018</title>
+    <meta name="description" content="<?php echo $this->description;?>">
+    <meta name="keywords" content="<?php echo $this->keywords;?>">
   </head>
   <body>
     <div id="app"></div>
