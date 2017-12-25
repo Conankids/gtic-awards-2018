@@ -154,7 +154,7 @@
                             <p>-最终评选出10个获奖产品。</p>
                         </div>
                         <a class="icon-add" href="javascript:;"><img src="../assets/images/icon-add.png" alt=""></a>
-                        <a class="apply-btn" href="http://cn.mikecrm.com/dKMOXCe" target="_blank">报名</a>
+                        <a class="apply-btn" href="http://cn.mikecrm.com/ebP5noq" target="_blank">报名</a>
                     </li>
                     <li>
                         <div class="shadow">
@@ -178,7 +178,7 @@
                             <p>-最终评选出5个获奖者。</p>
                         </div>
                         <a class="icon-add" href="javascript:;"><img src="../assets/images/icon-add.png" alt=""></a>
-                        <a class="apply-btn" href="http://cn.mikecrm.com/ebP5noq" target="_blank">报名</a>
+                        <a class="apply-btn" href="http://cn.mikecrm.com/dKMOXCe" target="_blank">报名</a>
                     </li>
                 </ul>
             </div>
@@ -235,7 +235,6 @@
         data() {
             return {
                 scrollBarFixed: false,
-                judgesNum: 15,
                 judgelist: [
                     {
                         img: require('../assets/images/judges/judge1.jpg'),
@@ -298,6 +297,12 @@
                         txt2: '创始合伙人'
                     },
                     {
+                        img: require('../assets/images/judges/013孙玉望-中芯聚望总裁.jpeg'),
+                        name: '孙玉望',
+                        txt1: '中芯聚源',
+                        txt2: '总裁'
+                    },
+                    {
                         img: require('../assets/images/judges/judge11.jpg'),
                         name: '王华东',
                         txt1: '经纬创投',
@@ -309,12 +314,12 @@
                         txt1: '英诺天使基金',
                         txt2: '合伙人'
                     },
-                    {
-                        img: require('../assets/images/judges/judge13.jpg'),
-                        name: '吴智勇',
-                        txt1: '丰厚资本',
-                        txt2: '创始合伙人'
-                    },
+//                    {
+//                        img: require('../assets/images/judges/judge13.jpg'),
+//                        name: '吴智勇',
+//                        txt1: '丰厚资本',
+//                        txt2: '创始合伙人'
+//                    },
                     {
                         img: require('../assets/images/judges/judge14.jpg'),
                         name: '熊伟铭',
