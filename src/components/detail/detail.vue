@@ -12,17 +12,19 @@
         <div class="vote-desc">{{voteDetail.desc}}</div>
       </div>
       <div class="apply-btn open" @click="vote(voteDetail.id)" v-if="voteDetail.status==0">投票</div>
-      <div v-else>已投票</div>
+      <div class="apply-btn" v-else>已投票</div>
     </div>
-    <div class="qrcode-wrap">
+    <div class="qrcode-wrap none">
       <div class="qrcode"></div>
       <div class="qrcode-text">微信扫一扫为TA拉票</div>
     </div>
+    <GoGtic/>
   </div>
 </template>
 <script>
   import Banner from 'base/banner'
   import VoteName from 'base/voteName'
+  import GoGtic from 'base/goGtic'
   import {jsonp, scrollTop} from '../../assets/js/utils'
 
   export default {
@@ -57,9 +59,15 @@
         })
       },
       vote(id) {
+        const that = this
         jsonp('http://wx.zhidx.com/zhidx_gtic_vote.php?id=' + this.voteId).then(res => {
-          this.$layer.msg("投票成功");
-          console.log(res);
+          if (res.success == 'true') {
+            that.voteDetail.vote++
+            that.voteDetail.status = 1
+            this.$layer.msg(res.result);
+          } else {
+            this.$layer.msg(res.errorMsg);
+          }
         }).catch(err => {
           this.$layer.msg("投票失败");
           console.log(err);
@@ -75,7 +83,8 @@
     },
     components: {
       Banner,
-      VoteName
+      VoteName,
+      GoGtic
     }
   }
 </script>

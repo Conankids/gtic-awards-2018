@@ -19,17 +19,17 @@
       return {
         voteNameList: [
           {
-            img: require('../assets/images/awards1-blue.png'),
+            img: require('../assets/images/awards2-blue.png'),
             name: '年度AI先锋',
             text: 'AI Pioneer of the year'
           },
           {
-            img: require('../assets/images/awards2-blue.png'),
+            img: require('../assets/images/awards3-blue.png'),
             name: '年度创新产品',
             text: 'Innovative Product of the year'
           },
           {
-            img: require('../assets/images/awards3-blue.png'),
+            img: require('../assets/images/awards4-blue.png'),
             name: '优秀解决方案',
             text: 'Best Solution of the year'
           }

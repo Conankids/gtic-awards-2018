@@ -23,5 +23,5 @@ export function jsonp(url, data, option) {
 }
 
 export function scrollTop() {
-  $('html,body').animate({scrollTop: 0}, 160)
+  $('html,body').animate({scrollTop: 0}, 0)
 }

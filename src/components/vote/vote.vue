@@ -67,7 +67,7 @@
     </div>
     <div class="vote-list-wrap">
       <ul class="vote-list">
-        <li v-for="item in voteList" @click="goDetail(item.id)">
+        <li v-for="(item,index) in voteList" @click="goDetail(item.id)">
           <div class="item-img">
             <img :src="item.cover" alt="">
           </div>
@@ -75,8 +75,9 @@
             <div class="item-title">{{item.username}}</div>
             <div class="item-desc">{{item.desc}}</div>
             <div class="item-option">
-              <div class="vote-num">{{item.vote}}</div>
-              <div class="vote-btn" @click.stop="vote(item.id)" v-if="item.status==0">投票</div>
+              <div class="vote-num">{{item.vote}} 票</div>
+              <div class="vote-btn" @click.stop="vote($event,item.id)" :data-index="index" v-if="item.status==0">投票
+              </div>
               <div v-else>已投票</div>
             </div>
           </div>
@@ -166,6 +167,7 @@
         </ul>
       </div>
     </div>
+    <GoGtic/>
   </div>
 </template>
 <script>
@@ -173,6 +175,7 @@
   import {getData, jsonp, scrollTop} from '../../assets/js/utils'
   import Banner from 'base/banner'
   import VoteName from 'base/voteName'
+  import GoGtic from 'base/goGtic'
 
   export default {
     data: function () {
@@ -214,28 +217,21 @@
           that.voteList = res[voteType]
         })
       },
-      vote(id) {
+      vote(e, id) {
+        const that = this
         jsonp('http://wx.zhidx.com/zhidx_gtic_vote.php?id=' + id).then(res => {
-          this.$layer.msg("投票成功");
-          console.log(res);
+          if (res.success == 'true') {
+            const idx = getData(e.target, 'index')
+            that.voteList[idx].vote++
+            that.voteList[idx].status = 1
+            this.$layer.msg(res.result);
+          } else {
+            this.$layer.msg(res.errorMsg);
+          }
         }).catch(err => {
           this.$layer.msg("投票失败");
           console.log(err);
         })
-//        this.$http.post('http://wx.zhidx.com/zhidx_gtic_vote.php', {id: id}', {
-//          headers: {
-//            "Content-Type": "application/json;charset=utf-8"
-//          },
-//          withCredentials: true
-//        })
-//          .then(response => {
-//            this.$layer.msg("投票成功");
-//            location.reload();
-//          })
-//          .catch(err => {
-//            this.$layer.msg("投票失败");
-//            console.log(err);
-//          });
       }
     },
     watch: {
@@ -245,7 +241,8 @@
     },
     components: {
       Banner,
-      VoteName
+      VoteName,
+      GoGtic
     }
   }
 </script>

@@ -2,12 +2,14 @@
   <div>
     <MyHeader/>
     <MyBody/>
+    <BackTop/>
   </div>
 </template>
 
 <script>
   import MyHeader from './myHeader'
   import MyBody from './myBody'
+  import BackTop from 'base/backTop'
   import {scrollTop} from '../../assets/js/utils'
 
   export default {
@@ -18,11 +20,12 @@
     },
     components: {
       MyHeader,
-      MyBody
+      MyBody,
+      BackTop
     }
   }
 </script>
 
-<style lang="less" scoped>
+<style lang="less" >
 
 </style>
