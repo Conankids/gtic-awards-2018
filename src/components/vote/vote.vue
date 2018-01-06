@@ -324,6 +324,7 @@
       }
     }
     .item-detail {
+      flex: 1;
       margin-left: 23px;
     }
     .item-title {
@@ -400,6 +401,9 @@
           .shadow, .closed {
             display: none;
           }
+          .awards-detail{
+            display: block;
+          }
         }
       }
     }
@@ -433,6 +437,7 @@
       }
     }
     .awards-detail {
+      display: none;
       width: 100%;
       height: 100%;
       background: url("../../assets/images/awards-detial-bg.png") no-repeat center center;
