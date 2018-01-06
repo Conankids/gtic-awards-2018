@@ -68,6 +68,7 @@
             location.reload();
           })
           .catch(err => {
+            this.$layer.msg("投票失败");
             console.log(err);
           });
       },

@@ -76,7 +76,7 @@
             <div class="item-desc">{{item.desc}}</div>
             <div class="item-option">
               <div class="vote-num">{{item.vote}}</div>
-              <div class="vote-btn" @click="vote(item.id)" v-if="item.status==0">投票</div>
+              <div class="vote-btn" @click.stop="vote(item.id)" v-if="item.status==0">投票</div>
               <div v-else>已投票</div>
             </div>
           </div>
@@ -226,6 +226,7 @@
             location.reload();
           })
           .catch(err => {
+            this.$layer.msg("投票失败");
             console.log(err);
           });
       }
