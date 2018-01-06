@@ -215,20 +215,27 @@
         })
       },
       vote(id) {
-        this.$http.post('http://wx.zhidx.com/zhidx_gtic_vote.php', {id: id}, {
-          headers: {
-            "Content-Type": "application/json;charset=utf-8"
-          },
-          withCredentials: true
+        jsonp('http://wx.zhidx.com/zhidx_gtic_vote.php?id=' + id).then(res => {
+          this.$layer.msg("投票成功");
+          console.log(res);
+        }).catch(err => {
+          this.$layer.msg("投票失败");
+          console.log(err);
         })
-          .then(response => {
-            this.$layer.msg("投票成功");
-            location.reload();
-          })
-          .catch(err => {
-            this.$layer.msg("投票失败");
-            console.log(err);
-          });
+//        this.$http.post('http://wx.zhidx.com/zhidx_gtic_vote.php', {id: id}', {
+//          headers: {
+//            "Content-Type": "application/json;charset=utf-8"
+//          },
+//          withCredentials: true
+//        })
+//          .then(response => {
+//            this.$layer.msg("投票成功");
+//            location.reload();
+//          })
+//          .catch(err => {
+//            this.$layer.msg("投票失败");
+//            console.log(err);
+//          });
       }
     },
     watch: {
