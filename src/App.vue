@@ -1,25 +1,20 @@
 <template>
     <div id="app" v-cloak>
-        <MyHeader/>
-        <MyBody/>
+        <router-view></router-view>
         <MyFooter/>
-        <!--<GoGtic/>-->
+        <GoGtic/>
         <BackTop/>
     </div>
 </template>
 
 <script>
     import '@/assets/style/base.less';
-    import MyHeader from './components/myHeader'
-    import MyBody from './components/myBody'
-    import MyFooter from './components/myFooter'
-    import GoGtic from './components/goGtic'
-    import BackTop from './components/backTop'
+    import MyFooter from 'base/myFooter'
+    import GoGtic from 'base/goGtic'
+    import BackTop from 'base/backTop'
 
     export default {
         components: {
-            MyHeader,
-            MyBody,
             MyFooter,
             GoGtic,
             BackTop

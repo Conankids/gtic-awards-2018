@@ -7,33 +7,32 @@
 </template>
 
 <script>
-	import bus from '../assets/js/bus'
+  import bus from '../assets/js/bus'
   import $ from 'jquery'
 
-	export default {
-		data() {
-			return {
-				scrollTopFlag: true
-			}
-		},
-		created() {
-			this.scrollEvent()
-		},
-		methods: {
-			scrollToTop() {
-				$('html,body').animate({scrollTop: 0}, 160)
-			},
-			scrollEvent() {
-				bus.$on('scrollTop', (message) => {
-					if (message.scrollTop > 50) {
-						this.scrollTopFlag = false
-					} else {
-						this.scrollTopFlag = true
-					}
-				})
-			}
-		}
-	}
+  export default {
+    data() {
+      return {
+        scrollTopFlag: true
+      }
+    },
+    mounted() {
+      window.addEventListener('scroll', this.scrollEvent)
+    },
+    methods: {
+      scrollToTop() {
+        $('html,body').animate({scrollTop: 0}, 160)
+      },
+      scrollEvent() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+        if (scrollTop > 50) {
+          this.scrollTopFlag = false
+        } else {
+          this.scrollTopFlag = true
+        }
+      },
+    }
+  }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

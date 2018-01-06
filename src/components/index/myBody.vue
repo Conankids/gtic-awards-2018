@@ -1,34 +1,11 @@
 <template>
   <div class="main-body main" :class="scrollBarFixed ? 'pt70' : ''">
-    <div class="home" id="home-box">
-      <transition
-        appear
-        appear-class="t-enter-class"
-        appear-active-class="t-enter-active-class">
-        <div class="awards-img">
-          <img src="../assets/images/cup.png" alt="">
-        </div>
-      </transition>
-      <transition
-        appear
-        appear-class="m-enter-class"
-        appear-active-class="m-enter-active-class">
-        <div class="gtic-img t-animate">
-          <img src="../assets/images/gtic-logo.png" alt="">
-        </div>
-      </transition>
-      <transition
-        appear
-        appear-class="b-enter-class"
-        appear-active-class="b-enter-active-class">
-        <p class="logo-txt b-animate">发现智能变革力量</p>
-      </transition>
-    </div>
+    <Banner/>
     <div class="introduction part" id="introduction-box">
       <div class="part-number">01</div>
       <div class="part-title">
         <div class="part-title-img">
-          <img src="../assets/images/introduction.png" alt="">
+          <img src="../../assets/images/introduction.png" alt="">
         </div>
         <h3>GTIC AWARDS 2018</h3>
         <p>/ 评选介绍 /</p>
@@ -49,13 +26,13 @@
       <div class="part-number">02</div>
       <div class="part-title">
         <div class="part-title-img">
-          <img src="../assets/images/Schedule.png" alt="">
+          <img src="../../assets/images/Schedule.png" alt="">
         </div>
         <p>/ 评选流程 /</p>
       </div>
       <div class="part-body">
         <div class="time-line-list">
-          <dl class="on">
+          <dl>
             <dt class="title">报名评选</dt>
             <dd class="time">2017.12.1-2017.12.31</dd>
           </dl>
@@ -63,7 +40,7 @@
             <dt class="title">资料筛选</dt>
             <dd class="time">2018.1.2-2018.1.7</dd>
           </dl>
-          <dl>
+          <dl class="on">
             <dt class="title">公众投票</dt>
             <dd class="time">2018.1.8-2018.1.21</dd>
           </dl>
@@ -83,7 +60,7 @@
       <div class="part-number">03</div>
       <div class="part-title">
         <div class="part-title-img">
-          <img src="../assets/images/awards.png" alt="">
+          <img src="../../assets/images/awards.png" alt="">
         </div>
         <p>/ 奖项信息 /</p>
       </div>
@@ -92,7 +69,7 @@
           <li>
             <div class="shadow">
               <div class="awards-img">
-                <img src="../assets/images/awards1.png" alt="">
+                <img src="../../assets/images/awards1.png" alt="">
               </div>
               <div class="awards-name">
                 <h3>年度变革力量</h3>
@@ -106,13 +83,13 @@
               <p>-将由主办方进行综合评估，最终评选出1家获奖企业；</p>
               <p>-获奖企业需要出席GTIC AWARDS 2018颁奖仪式。</p>
             </div>
-            <a class="icon-add" href="javascript:;"><img src="../assets/images/icon-add.png" alt=""></a>
-            <a class="apply-btn" href="javascript:;" target="_blank">敬请期待</a>
+            <a class="icon-add" href="javascript:;"><img src="../../assets/images/icon-add.png" alt=""></a>
+            <a class="apply-btn" href="javascript:;">敬请期待</a>
           </li>
           <li>
             <div class="shadow">
               <div class="awards-img">
-                <img src="../assets/images/awards2.png" alt="">
+                <img src="../../assets/images/awards2.png" alt="">
               </div>
               <div class="awards-name">
                 <h3>年度AI先锋</h3>
@@ -130,13 +107,13 @@
               <p>-大众投票权重占比30%，评委嘉宾评分权重占70%；</p>
               <p>-最终评选出10家获奖公司。</p>
             </div>
-            <a class="icon-add" href="javascript:;"><img src="../assets/images/icon-add.png" alt=""></a>
-            <a class="apply-btn" _href="http://cn.mikecrm.com/Yc0hq7M" target="_blank">{{'敬请期待'||'报名'}}</a>
+            <a class="icon-add" href="javascript:;"><img src="../../assets/images/icon-add.png" alt=""></a>
+            <a class="apply-btn" :data-id="1" href="javascript:;" @click="selectVote($event)">投票</a>
           </li>
           <li>
             <div class="shadow">
               <div class="awards-img">
-                <img src="../assets/images/awards3.png" alt="">
+                <img src="../../assets/images/awards3.png" alt="">
               </div>
               <div class="awards-name">
                 <h3>年度创新产品</h3>
@@ -153,13 +130,13 @@
               <p>-大众投票权重占比30%，评委嘉宾评分权重占70%；</p>
               <p>-最终评选出10个获奖产品。</p>
             </div>
-            <a class="icon-add" href="javascript:;"><img src="../assets/images/icon-add.png" alt=""></a>
-            <a class="apply-btn" _href="http://cn.mikecrm.com/ebP5noq" target="_blank">{{'敬请期待'||'报名'}}</a>
+            <a class="icon-add" href="javascript:;"><img src="../../assets/images/icon-add.png" alt=""></a>
+            <a class="apply-btn" :data-id="2" href="javascript:;" @click="selectVote($event)" target="_blank">投票</a>
           </li>
           <li>
             <div class="shadow">
               <div class="awards-img">
-                <img src="../assets/images/awards4.png" alt="">
+                <img src="../../assets/images/awards4.png" alt="">
               </div>
               <div class="awards-name">
                 <h3>优秀解决方案</h3>
@@ -177,8 +154,8 @@
               <p>-大众投票权重占比30%，评委嘉宾评分权重占70%；</p>
               <p>-最终评选出5个获奖者。</p>
             </div>
-            <a class="icon-add" href="javascript:;"><img src="../assets/images/icon-add.png" alt=""></a>
-            <a class="apply-btn" _href="http://cn.mikecrm.com/dKMOXCe" target="_blank">{{'敬请期待'||'报名'}}</a>
+            <a class="icon-add" href="javascript:;"><img src="../../assets/images/icon-add.png" alt=""></a>
+            <a class="apply-btn" :data-id="3" href="javascript:;" @click="selectVote($event)">投票</a>
           </li>
         </ul>
       </div>
@@ -187,7 +164,7 @@
       <div class="part-number">04</div>
       <div class="part-title">
         <div class="part-title-img">
-          <img src="../assets/images/judges.png" alt="">
+          <img src="../../assets/images/judges.png" alt="">
         </div>
         <p>/ 评委嘉宾 /</p>
       </div>
@@ -212,19 +189,19 @@
       <div class="part-number">05</div>
       <div class="part-title">
         <div class="part-title-img">
-          <img src="../assets/images/About.png" alt="">
+          <img src="../../assets/images/About.png" alt="">
         </div>
         <p>/ 主办 /</p>
       </div>
       <div class="part-body">
         <div class="logo-item" style="height: 105px">
-          <img src="../assets/images/zhidx.png" alt="">
+          <img src="../../assets/images/zhidx.png" alt="">
         </div>
         <div class="logo-item">
-          <img src="../assets/images/jiguo.png" alt="">
+          <img src="../../assets/images/jiguo.png" alt="">
         </div>
         <div class="logo-item">
-          <img src="../assets/images/AWE.png" alt="">
+          <img src="../../assets/images/AWE.png" alt="">
         </div>
       </div>
     </div>
@@ -232,166 +209,143 @@
 </template>
 
 <script>
-	import bus from '../assets/js/bus'
-	import $ from 'jquery'
-    export default {
-        data() {
-            return {
-                scrollBarFixed: false,
-                judgelist: [
-                    {
-                        img: require('../assets/images/judges/judge1.jpg'),
-                        name: '陈昱',
-                        txt1: '云启资本',
-                        txt2: '执行董事'
-                    },
-                    {
-                        img: require('../assets/images/judges/judge2.jpg'),
-                        name: '龚伦常',
-                        txt1: '智东西',
-                        txt2: 'CEO'
-                    },
-                    {
-                        img: require('../assets/images/judges/judge3.jpg'),
-                        name: '顾旻曼',
-                        txt1: '真格基金',
-                        txt2: '董事总经理'
-                    },
-                    {
-                        img: require('../assets/images/judges/judge4.jpg'),
-                        name: '何建文',
-                        txt1: '辰韬资本',
-                        txt2: '管理合伙人'
-                    },
-                    {
-                        img: require('../assets/images/judges/judge5.jpg'),
-                        name: '贾静',
-                        txt1: '德联资本',
-                        txt2: '合伙人'
-                    },
-                    {
-                        img: require('../assets/images/judges/judge6.jpg'),
-                        name: '刘鹏',
-                        txt1: '极果',
-                        txt2: '创始人&CEO'
-                    },
-                    {
-                        img: require('../assets/images/judges/judge7.jpg'),
-                        name: '满坤',
-                        txt1: '安创空间合伙人、安创资本管理合伙人',
-                        txt2: ''
-                    },
-                    {
-                        img: require('../assets/images/judges/judge8.jpg'),
-                        name: '毛圣博',
-                        txt1: '熊猫资本',
-                        txt2: '合伙人'
-                    },
-                    {
-                        img: require('../assets/images/judges/judge9.jpg'),
-                        name: '孟醒',
-                        txt1: '顺为资本',
-                        txt2: '副总裁'
-                    },
-                    {
-                        img: require('../assets/images/judges/judge10.jpg'),
-                        name: '石东华',
-                        txt1: '索道投资',
-                        txt2: '创始合伙人'
-                    },
-                    {
-                        img: require('../assets/images/judges/013孙玉望-中芯聚望总裁.jpeg'),
-                        name: '孙玉望',
-                        txt1: '中芯聚源',
-                        txt2: '总裁'
-                    },
-                    {
-                        img: require('../assets/images/judges/judge11.jpg'),
-                        name: '王华东',
-                        txt1: '经纬创投',
-                        txt2: '合伙人'
-                    },
-                    {
-                        img: require('../assets/images/judges/judge12.jpg'),
-                        name: '王晟',
-                        txt1: '英诺天使基金',
-                        txt2: '合伙人'
-                    },
+  import bus from '../../assets/js/bus'
+  import {getData} from '../../assets/js/utils'
+  import $ from 'jquery'
+  import Banner from 'base/banner'
+
+  export default {
+    data() {
+      return {
+        scrollBarFixed: false,
+        judgelist: [
+          {
+            img: require('../../assets/images/judges/judge1.jpg'),
+            name: '陈昱',
+            txt1: '云启资本',
+            txt2: '执行董事'
+          },
+          {
+            img: require('../../assets/images/judges/judge2.jpg'),
+            name: '龚伦常',
+            txt1: '智东西',
+            txt2: 'CEO'
+          },
+          {
+            img: require('../../assets/images/judges/judge3.jpg'),
+            name: '顾旻曼',
+            txt1: '真格基金',
+            txt2: '董事总经理'
+          },
+          {
+            img: require('../../assets/images/judges/judge4.jpg'),
+            name: '何建文',
+            txt1: '辰韬资本',
+            txt2: '管理合伙人'
+          },
+          {
+            img: require('../../assets/images/judges/judge5.jpg'),
+            name: '贾静',
+            txt1: '德联资本',
+            txt2: '合伙人'
+          },
+          {
+            img: require('../../assets/images/judges/judge6.jpg'),
+            name: '刘鹏',
+            txt1: '极果',
+            txt2: '创始人&CEO'
+          },
+          {
+            img: require('../../assets/images/judges/judge7.jpg'),
+            name: '满坤',
+            txt1: '安创空间合伙人、安创资本管理合伙人',
+            txt2: ''
+          },
+          {
+            img: require('../../assets/images/judges/judge8.jpg'),
+            name: '毛圣博',
+            txt1: '熊猫资本',
+            txt2: '合伙人'
+          },
+          {
+            img: require('../../assets/images/judges/judge9.jpg'),
+            name: '孟醒',
+            txt1: '顺为资本',
+            txt2: '副总裁'
+          },
+          {
+            img: require('../../assets/images/judges/judge10.jpg'),
+            name: '石东华',
+            txt1: '索道投资',
+            txt2: '创始合伙人'
+          },
+          {
+            img: require('../../assets/images/judges/013孙玉望-中芯聚望总裁.jpeg'),
+            name: '孙玉望',
+            txt1: '中芯聚源',
+            txt2: '总裁'
+          },
+          {
+            img: require('../../assets/images/judges/judge11.jpg'),
+            name: '王华东',
+            txt1: '经纬创投',
+            txt2: '合伙人'
+          },
+          {
+            img: require('../../assets/images/judges/judge12.jpg'),
+            name: '王晟',
+            txt1: '英诺天使基金',
+            txt2: '合伙人'
+          },
 //                    {
-//                        img: require('../assets/images/judges/judge13.jpg'),
+//                        img: require('../../assets/images/judges/judge13.jpg'),
 //                        name: '吴智勇',
 //                        txt1: '丰厚资本',
 //                        txt2: '创始合伙人'
 //                    },
-                    {
-                        img: require('../assets/images/judges/judge14.jpg'),
-                        name: '熊伟铭',
-                        txt1: '华创资本',
-                        txt2: '合伙人'
-                    },
-                    {
-                        img: require('../assets/images/judges/judge15.jpg'),
-                        name: '祝晓成',
-                        txt1: '臻云创投',
-                        txt2: '创始合伙人'
-                    }
-                ]
-            }
-        },
-        created() {
-            this.handleScrollBarFixed()
-        },
-        mounted() {
-        },
-        methods: {
-            handleScrollBarFixed() {
-                bus.$on('scrollTop', (messages) => {
-                    this.scrollBarFixed = messages.navScrollBarFixed
-                })
-            }
-        }
+          {
+            img: require('../../assets/images/judges/judge14.jpg'),
+            name: '熊伟铭',
+            txt1: '华创资本',
+            txt2: '合伙人'
+          },
+          {
+            img: require('../../assets/images/judges/judge15.jpg'),
+            name: '祝晓成',
+            txt1: '臻云创投',
+            txt2: '创始合伙人'
+          }
+        ]
+      }
+    },
+    created() {
+      this.handleScrollBarFixed()
+    },
+    mounted() {
+    },
+    methods: {
+      handleScrollBarFixed() {
+        bus.$on('scrollTop', (messages) => {
+          this.scrollBarFixed = messages.navScrollBarFixed
+        })
+      },
+      selectVote(e) {
+        let voteId = getData(e.target, 'id')
+        this.$router.push({
+          path: `/vote/${voteId}`
+        })
+      }
+    },
+    components: {
+      Banner
     }
+  }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
   .pt70 {
     padding-top: 70px;
-  }
-
-  .home {
-    margin-top: 168px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 40px;
-    background: url("../assets/images/2018.png") no-repeat center bottom;
-    background-size: 568px auto;
-    .awards-img {
-      width: 162px;
-      height: 160px;
-      img {
-        width: 100%;
-        height: 100%;
-      }
-    }
-    .gtic-img {
-      width: 817px;
-      height: 146px;
-      margin: 20px 0;
-      img {
-        width: 100%;
-        height: 100%;
-      }
-    }
-    .logo-txt {
-      font-size: 30px;
-      line-height: 42px;
-      color: #FFF78D;
-      text-align: center;
-      letter-spacing: 18.13px;
-    }
   }
 
   .part {
@@ -568,7 +522,7 @@
     .awards-detail {
       width: 100%;
       height: 100%;
-      background: url("../assets/images/awards-detial-bg.png") no-repeat center center;
+      background: url("../../assets/images/awards-detial-bg.png") no-repeat center center;
       background-size: cover;
       padding: 33px 42px;
       box-sizing: border-box;
@@ -661,27 +615,10 @@
           height: 112px;
           margin-left: 0;
         }
-        &:last-child{
+        &:last-child {
           height: 92px;
         }
       }
     }
-  }
-
-  /*动画*/
-  .t-enter-active-class {
-    transition: ease-out .5s;
-  }
-
-  .t-enter-class {
-    transform: translateY(-30px);
-  }
-
-  .b-enter-active-class {
-    transition: ease-out .5s;
-  }
-
-  .b-enter-class {
-    transform: translateY(30px);
   }
 </style>

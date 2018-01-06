@@ -1,5 +1,5 @@
 <template>
-  <a class="go-wrapper" href="javascript:;" target="_blank">
+  <a class="go-wrapper" href="javascript:;" @click="goGtic()">
     <div class="icon-gtic">
       <img src="../assets/images/GTIC 2018.png" alt="">
     </div>
@@ -11,8 +11,13 @@
 </template>
 
 <script>
-
-	export default {}
+  export default {
+    methods: {
+      goGtic() {
+        this.$router.push({path: '/index'})
+      }
+    }
+  }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
