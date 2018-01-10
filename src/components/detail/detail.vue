@@ -4,17 +4,19 @@
     <vote-name :voteType="voteType"></vote-name>
     <div class="vote-detail">
       <div class="avt">
-        <img :src="voteDetail.cover" alt="">
+        <div class="avt-box">
+          <img :src="voteDetail.cover" alt="">
+        </div>
         <div class="vote-num">{{voteDetail.vote}}票</div>
       </div>
       <div class="vote-desc-wrap">
-        <div class="vote-name">{{voteDetail.name}}</div>
+        <div class="vote-name">{{voteDetail.username}}</div>
         <div class="vote-desc">{{voteDetail.desc}}</div>
       </div>
       <div class="apply-btn open" @click="vote(voteDetail.id)" v-if="voteDetail.status==0">投票</div>
       <div class="apply-btn" v-else>已投票</div>
     </div>
-    <div class="qrcode-wrap none">
+    <div class="qrcode-wrap">
       <div class="qrcode"></div>
       <div class="qrcode-text">微信扫一扫为TA拉票</div>
     </div>
@@ -25,6 +27,7 @@
   import Banner from 'base/banner'
   import VoteName from 'base/voteName'
   import GoGtic from 'base/goGtic'
+  import Cookies from 'cookies-js'
   import {jsonp, scrollTop} from '../../assets/js/utils'
 
   export default {
@@ -32,10 +35,12 @@
       return {
         voteType: this.$route.query.type,
         voteId: this.$route.query.id,
-        voteDetail: {}
+        voteDetail: {},
+        code: ''
       }
     },
     created() {
+      this.createCode()
       this.getQuery()
     },
     mounted() {
@@ -49,7 +54,7 @@
       getQuery() {
         const that = this
         const query = this.$route.query
-        jsonp('http://wx.zhidx.com/zhidx/gtic/getuserlist').then(function (res) {
+        jsonp(`http://wx.zhidx.com/zhidx/gtic/getuserlist?code=${this.code}`).then(function (res) {
           const voteList = res[query.type]
           for (let i in voteList) {
             if (voteList[i].id == query.id) {
@@ -60,7 +65,7 @@
       },
       vote(id) {
         const that = this
-        jsonp('http://wx.zhidx.com/zhidx_gtic_vote.php?id=' + this.voteId).then(res => {
+        jsonp(`http://wx.zhidx.com/zhidx_gtic_vote.php?code=${this.code}&id=${this.voteId}`).then(res => {
           if (res.success == 'true') {
             that.voteDetail.vote++
             that.voteDetail.status = 1
@@ -74,11 +79,18 @@
         })
       },
       qrcode() {
+//        const mbUrl = `http://${location.host}/static/gtic/detail.php?type=${this.voteType}&id=${this.voteId}`
+        const mbUrl = `http://${location.host}/awards2018/detail.php?type=${this.voteType}&id=${this.voteId}`
         $(".qrcode").qrcode({
-          text: 'http://' + location.host + '/mb/detail?type=' + this.voteType + '&id=' + this.voteId,
+          text: mbUrl,
           width: 130,
           height: 130
         });
+      },
+      createCode() {
+        const code = Cookies.get('code') || ('code' + String(Math.random()).replace('.', '') + String(new Date().getTime()))
+        Cookies.set('code', code, {expires: 999999999})
+        this.code = code
       }
     },
     components: {
@@ -126,10 +138,18 @@
       position: relative;
       width: 149px;
       height: 149px;
-      img {
-        width: 100%;
+      .avt-box {
         height: 100%;
         border-radius: 50%;
+        background-color: #fff;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      img {
+        max-width: 90%;
+        max-height: 90%;
       }
       .vote-num {
         width: 129px;

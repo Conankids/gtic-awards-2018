@@ -67,13 +67,16 @@
     </div>
     <div class="vote-list-wrap">
       <ul class="vote-list">
-        <li v-for="(item,index) in voteList" @click="goDetail(item.id)">
+        <li v-for="(item,index) in voteList">
           <div class="item-img">
             <img :src="item.cover" alt="">
           </div>
           <div class="item-detail">
             <div class="item-title">{{item.username}}</div>
-            <div class="item-desc">{{item.desc}}</div>
+            <div class="item-desc">
+              {{item.desc.length > 48 ? item.desc.substring(0, 48) + '...' : item.desc}}
+              <a :href="`#/detail?type=${voteType}&id=${item.id}`" target="_blank" class="look-detail">查看详情</a>
+            </div>
             <div class="item-option">
               <div class="vote-num">{{item.vote}} 票</div>
               <div class="vote-btn" @click.stop="vote($event,item.id)" :data-index="index" v-if="item.status==0">投票
@@ -115,7 +118,7 @@
               <p>-最终评选出10家获奖公司。</p>
             </div>
             <a class="icon-add" href="javascript:;"><img src="../../assets/images/icon-add.png" alt=""></a>
-            <a class="apply-btn" :data-id="1" href="javascript:;" @click="selectVote($event)">投票</a>
+            <a class="apply-btn" :data-id="1" :href="`#/vote/1`" target="_blank">投票</a>
           </li>
           <li :class="voteType==2?'none':''">
             <div class="shadow">
@@ -138,7 +141,7 @@
               <p>-最终评选出10个获奖产品。</p>
             </div>
             <a class="icon-add" href="javascript:;"><img src="../../assets/images/icon-add.png" alt=""></a>
-            <a class="apply-btn" :data-id="2" href="javascript:;" @click="selectVote($event)">投票</a>
+            <a class="apply-btn" :data-id="2" :href="`#/vote/2`" target="_blank">投票</a>
           </li>
           <li :class="voteType==3?'none':''">
             <div class="shadow">
@@ -162,7 +165,7 @@
               <p>-最终评选出5个获奖者。</p>
             </div>
             <a class="icon-add" href="javascript:;"><img src="../../assets/images/icon-add.png" alt=""></a>
-            <a class="apply-btn" :data-id="3" href="javascript:;" @click="selectVote($event)">投票</a>
+            <a class="apply-btn" :data-id="3" :href="`#/vote/3`" target="_blank">投票</a>
           </li>
         </ul>
       </div>
@@ -176,15 +179,18 @@
   import Banner from 'base/banner'
   import VoteName from 'base/voteName'
   import GoGtic from 'base/goGtic'
+  import Cookies from 'cookies-js'
 
   export default {
     data: function () {
       return {
         voteType: '',
-        voteList: ''
+        voteList: '',
+        code: ''
       }
     },
     created() {
+      this.createCode()
       this.getType()
       this._setVoteType()
     },
@@ -195,17 +201,17 @@
     },
     methods: {
       goDetail(id) {
-        this.$router.push({
-          path: `/detail`,
-          query: {type: this.voteType, id: id}
-        })
+//        this.$router.push({
+//          path: `/detail`,
+//          query: {type: this.voteType, id: id}
+//        })
       },
       selectVote(e) {
-        let voteId = getData(e.target, 'id')
-        this.$router.push({
-          path: `/vote/${voteId}`
-        })
-        location.reload()
+//        let voteId = getData(e.target, 'id')
+//        this.$router.push({
+//          path: `/vote/${voteId}`
+//        })
+//        location.reload()
       },
       getType() {
         this.voteType = this.$route.params.id
@@ -213,13 +219,13 @@
       _setVoteType() {
         const voteType = this.voteType + ''
         let that = this
-        jsonp('http://wx.zhidx.com/zhidx/gtic/getuserlist').then(function (res) {
+        jsonp(`http://wx.zhidx.com/zhidx/gtic/getuserlist?code=${this.code}`).then(function (res) {
           that.voteList = res[voteType]
         })
       },
       vote(e, id) {
         const that = this
-        jsonp('http://wx.zhidx.com/zhidx_gtic_vote.php?id=' + id).then(res => {
+        jsonp(`http://wx.zhidx.com/zhidx_gtic_vote.php?id=${id}&code=${this.code}`).then(res => {
           if (res.success == 'true') {
             const idx = getData(e.target, 'index')
             that.voteList[idx].vote++
@@ -232,6 +238,11 @@
           this.$layer.msg("投票失败");
           console.log(err);
         })
+      },
+      createCode() {
+        const code = Cookies.get('code') || ('code' + String(Math.random()).replace('.', '') + String(new Date().getTime()))
+        Cookies.set('code', code, {expires: 999999999})
+        this.code = code
       }
     },
     watch: {
@@ -315,7 +326,6 @@
       align-items: center;
       margin-right: 75px;
       margin-bottom: 30px;
-      cursor: pointer;
     }
     .item-img {
       img {
@@ -340,6 +350,11 @@
       height: 34px;
       color: #838383;
       overflow: hidden;
+      text-align: justify;
+    }
+    .look-detail {
+      color: #51C0F0;
+      float: right;
     }
     .item-option {
       margin-top: 10px;
@@ -401,7 +416,7 @@
           .shadow, .closed {
             display: none;
           }
-          .awards-detail{
+          .awards-detail {
             display: block;
           }
         }

@@ -4,7 +4,7 @@
       <img src="../assets/images/GTIC 2018.png" alt="">
     </div>
     <div class="go-content">
-      <p>主会场</p>
+      <p>返回首页</p>
       <div class="arrows"></div>
     </div>
   </a>
