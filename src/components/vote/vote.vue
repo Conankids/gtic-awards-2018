@@ -79,7 +79,7 @@
             </div>
             <div class="item-option">
               <div class="vote-num">{{item.vote}} 票</div>
-              <div class="vote-btn" @click.stop="vote($event,item.id)" :data-index="index" v-if="item.status==0">投票
+              <div class="vote-btn" @click.stop="vote($event,item.id)" :data-index="index" v-if="item.status==0">投票结束
               </div>
               <div v-else>已投票</div>
             </div>
@@ -118,7 +118,7 @@
               <p>-最终评选出10家获奖公司。</p>
             </div>
             <a class="icon-add" href="javascript:;"><img src="../../assets/images/icon-add.png" alt=""></a>
-            <a class="apply-btn" :data-id="1" :href="`#/vote/1`" target="_blank">投票</a>
+            <a class="apply-btn" :data-id="1" :href="`#/vote/1`" target="_blank">投票结束</a>
           </li>
           <li :class="voteType==2?'none':''">
             <div class="shadow">
@@ -141,7 +141,7 @@
               <p>-最终评选出10个获奖产品。</p>
             </div>
             <a class="icon-add" href="javascript:;"><img src="../../assets/images/icon-add.png" alt=""></a>
-            <a class="apply-btn" :data-id="2" :href="`#/vote/2`" target="_blank">投票</a>
+            <a class="apply-btn" :data-id="2" :href="`#/vote/2`" target="_blank">投票结束</a>
           </li>
           <li :class="voteType==3?'none':''">
             <div class="shadow">
@@ -165,7 +165,7 @@
               <p>-最终评选出5个获奖者。</p>
             </div>
             <a class="icon-add" href="javascript:;"><img src="../../assets/images/icon-add.png" alt=""></a>
-            <a class="apply-btn" :data-id="3" :href="`#/vote/3`" target="_blank">投票</a>
+            <a class="apply-btn" :data-id="3" :href="`#/vote/3`" target="_blank">投票结束</a>
           </li>
         </ul>
       </div>
@@ -225,19 +225,19 @@
       },
       vote(e, id) {
         const that = this
-        jsonp(`http://wx.zhidx.com/zhidx_gtic_vote.php?id=${id}&code=${this.code}`).then(res => {
-          if (res.success == 'true') {
-            const idx = getData(e.target, 'index')
-            that.voteList[idx].vote++
-            that.voteList[idx].status = 1
-            this.$layer.msg(res.result);
-          } else {
-            this.$layer.msg(res.errorMsg);
-          }
-        }).catch(err => {
-          this.$layer.msg("投票失败");
-          console.log(err);
-        })
+//        jsonp(`http://wx.zhidx.com/zhidx_gtic_vote.php?id=${id}&code=${this.code}`).then(res => {
+//          if (res.success == 'true') {
+//            const idx = getData(e.target, 'index')
+//            that.voteList[idx].vote++
+//            that.voteList[idx].status = 1
+//            this.$layer.msg(res.result);
+//          } else {
+//            this.$layer.msg(res.errorMsg);
+//          }
+//        }).catch(err => {
+//          this.$layer.msg("投票失败");
+//          console.log(err);
+//        })
       },
       createCode() {
         const code = Cookies.get('code') || ('code' + String(Math.random()).replace('.', '') + String(new Date().getTime()))
@@ -367,7 +367,7 @@
       color: #51C0F0;
     }
     .vote-btn {
-      width: 66px;
+      padding: 0 5px;
       height: 22px;
       line-height: 22px;
       text-align: center;

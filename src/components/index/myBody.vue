@@ -108,7 +108,7 @@
               <p>-最终评选出10家获奖公司。</p>
             </div>
             <a class="icon-add" href="javascript:;"><img src="../../assets/images/icon-add.png" alt=""></a>
-            <a class="apply-btn" :data-id="1" :href="`#/vote/1`"target="_blank">投票</a>
+            <a class="apply-btn" :data-id="1" :href="`#/vote/1`"target="_blank">投票结束</a>
           </li>
           <li>
             <div class="shadow">
@@ -131,7 +131,7 @@
               <p>-最终评选出10个获奖产品。</p>
             </div>
             <a class="icon-add" href="javascript:;"><img src="../../assets/images/icon-add.png" alt=""></a>
-            <a class="apply-btn" :data-id="2" :href="`#/vote/2`"target="_blank">投票</a>
+            <a class="apply-btn" :data-id="2" :href="`#/vote/2`"target="_blank">投票结束</a>
           </li>
           <li>
             <div class="shadow">
@@ -155,7 +155,7 @@
               <p>-最终评选出5个获奖者。</p>
             </div>
             <a class="icon-add" href="javascript:;"><img src="../../assets/images/icon-add.png" alt=""></a>
-            <a class="apply-btn" :data-id="3" :href="`#/vote/3`"target="_blank">投票</a>
+            <a class="apply-btn" :data-id="3" :href="`#/vote/3`"target="_blank">投票结束</a>
           </li>
         </ul>
       </div>

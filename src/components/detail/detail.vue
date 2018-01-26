@@ -13,7 +13,7 @@
         <div class="vote-name">{{voteDetail.username}}</div>
         <div class="vote-desc">{{voteDetail.desc}}</div>
       </div>
-      <div class="apply-btn open" @click="vote(voteDetail.id)" v-if="voteDetail.status==0">投票</div>
+      <div class="apply-btn open" @click="vote(voteDetail.id)" v-if="voteDetail.status==0">投票结束</div>
       <div class="apply-btn" v-else>已投票</div>
     </div>
     <div class="qrcode-wrap">
@@ -65,18 +65,18 @@
       },
       vote(id) {
         const that = this
-        jsonp(`http://wx.zhidx.com/zhidx_gtic_vote.php?code=${this.code}&id=${this.voteId}`).then(res => {
-          if (res.success == 'true') {
-            that.voteDetail.vote++
-            that.voteDetail.status = 1
-            this.$layer.msg(res.result);
-          } else {
-            this.$layer.msg(res.errorMsg);
-          }
-        }).catch(err => {
-          this.$layer.msg("投票失败");
-          console.log(err);
-        })
+//        jsonp(`http://wx.zhidx.com/zhidx_gtic_vote.php?code=${this.code}&id=${this.voteId}`).then(res => {
+//          if (res.success == 'true') {
+//            that.voteDetail.vote++
+//            that.voteDetail.status = 1
+//            this.$layer.msg(res.result);
+//          } else {
+//            this.$layer.msg(res.errorMsg);
+//          }
+//        }).catch(err => {
+//          this.$layer.msg("投票失败");
+//          console.log(err);
+//        })
       },
       qrcode() {
 //        const mbUrl = `http://${location.host}/static/gtic/detail.php?type=${this.voteType}&id=${this.voteId}`
