@@ -40,7 +40,7 @@
             <dt class="title">资料筛选</dt>
             <dd class="time">2018.1.2-2018.1.9</dd>
           </dl>
-          <dl class="on">
+          <dl>
             <dt class="title">公众投票</dt>
             <dd class="time">2018.1.10-2018.1.26</dd>
           </dl>
@@ -48,7 +48,7 @@
             <dt class="title">评委评审</dt>
             <dd class="time">2018.1.27-2017.2.9</dd>
           </dl>
-          <dl>
+          <dl class="on">
             <dt class="title">颁奖仪式</dt>
             <dd class="time">2018.3.9</dd>
           </dl>
@@ -108,7 +108,7 @@
               <p>-最终评选出10家获奖公司。</p>
             </div>
             <a class="icon-add" href="javascript:;"><img src="../../assets/images/icon-add.png" alt=""></a>
-            <a class="apply-btn" :data-id="1" :href="`#/vote/1`"target="_blank">投票结束</a>
+            <a class="apply-btn" :data-id="1" href="javascript:;">敬请期待</a>
           </li>
           <li>
             <div class="shadow">
@@ -131,7 +131,7 @@
               <p>-最终评选出10个获奖产品。</p>
             </div>
             <a class="icon-add" href="javascript:;"><img src="../../assets/images/icon-add.png" alt=""></a>
-            <a class="apply-btn" :data-id="2" :href="`#/vote/2`"target="_blank">投票结束</a>
+            <a class="apply-btn" :data-id="2" href="javascript:;">敬请期待</a>
           </li>
           <li>
             <div class="shadow">
@@ -155,7 +155,7 @@
               <p>-最终评选出5个获奖者。</p>
             </div>
             <a class="icon-add" href="javascript:;"><img src="../../assets/images/icon-add.png" alt=""></a>
-            <a class="apply-btn" :data-id="3" :href="`#/vote/3`"target="_blank">投票结束</a>
+            <a class="apply-btn" :data-id="3" href="javascript:;">敬请期待</a>
           </li>
         </ul>
       </div>
